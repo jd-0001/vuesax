@@ -257,6 +257,10 @@ export default {
     loadData() {
       let max = Math.ceil(this.currentx * this.maxItemsx)
       let min = max - this.maxItemsx
+      if (this.sst) {
+        max = this.maxItemsx
+        min = 0
+      }
 
       if(!this.searchx || this.sst) {
         this.datax = this.pagination ? this.getItems(min, max) : this.sortItems(this.data) || [];
